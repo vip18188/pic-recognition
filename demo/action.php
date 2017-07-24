@@ -42,7 +42,13 @@ $aipOcr = new AipOcr(APP_ID, API_KEY, SECRET_KEY);
 
 $file = $_FILES['file'];
 
-echo '<pre>';
-var_dump($file);
+//获取最后一个.的位置
+$start = strripos($file['name'],'.');
+//获取文件后缀
+$suffix = substr($file['name'],$start);
 
  $path = '/data/wwwroot/sites/photo/';
+
+ $paths = $path.$file['name'];//设置移动路径
+
+ move_uploaded_file($file['tmp_name'],$paths);
