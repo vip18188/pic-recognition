@@ -47,7 +47,7 @@ $start = strripos($file['name'],'.');
 //获取文件后缀
 $suffix = substr($file['name'],$start);
 
-
+echo $suffix;
  $allow_type = array('jpg','jpeg','gif','png'); //定义允许上传的类型
 //判断文件类型是否被允许上传
 if(!in_array($suffix, $allow_type)){
