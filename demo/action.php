@@ -3,10 +3,12 @@
 // 引入文字识别OCR SDK
 require_once '../AipOcr.php';
 
+// 以下信息申请连接：http://ai.baidu.com/
+
 // 定义常量
-const APP_ID = '9923767';
-const API_KEY = 'M0NyZq47eoaoF1rALB8ntR74';
-const SECRET_KEY = 'sW0jdqsmp4u69EG4AyXXndWLVBkCqiNg';
+const APP_ID = '';
+const API_KEY = '';
+const SECRET_KEY = '';
 
 
 // 初始化
