@@ -47,8 +47,20 @@ $start = strripos($file['name'],'.');
 //获取文件后缀
 $suffix = substr($file['name'],$start);
 
- $path = '/data/wwwroot/sites/photo/';
 
- $paths = $path.$file['name'];//设置移动路径
-
- move_uploaded_file($file['tmp_name'],$paths);
+ $allow_type = array('jpg','jpeg','gif','png'); //定义允许上传的类型
+//判断文件类型是否被允许上传
+if(!in_array($suffix, $allow_type)){
+  exit('图片类型错误');
+}
+//判断是否是通过HTTP POST上传的
+if(!is_uploaded_file($file['tmp_name'])){
+  exit('错误');
+}
+$upload_path = '/data/wwwroot/sites/photo/'; //上传文件的存放路径
+//开始移动文件到相应的文件夹
+if(move_uploaded_file($file['tmp_name'],$upload_path.$file['name'])){
+  echo "Successfully!";
+}else{
+  echo "Failed!";
+}
